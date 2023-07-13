@@ -6,8 +6,6 @@ Semester: Fall 2023
 
 Topic: Tries Data Structure
 
-Link The Repository: https://github.com/Spring23-CS5008-BOS-Lionelle/research-project-mpadron-neu.git
-
 ## Introduction
 
 Tries (also known as a prefix trees) are a type of abstract data structure used for locating specific keys within a set. They are implemented in the form of a sorted tree and are mainly used for storing and searching strings. The idea of using tries was first proposed in 1912 by mathematician Axel Thue as a way to represent a set of strings. In 1959, tries were described in the context of computer science by René de la Briandais, and in 1960 they were coined as 'tries' by Professor Edward Fredkin, who named them for 'retrieval trees'. They were originally developed to support information retrieval and natural language processing, and are now used in various computer applications, such as search engines, autocomplete, and network routing tables.
