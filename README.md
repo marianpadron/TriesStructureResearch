@@ -1,4 +1,4 @@
-# Research Paper
+# Tries Structure Research Paper
 
 Name: Marian Padron
 
@@ -18,7 +18,9 @@ The use of tries for fast searching in a large collection of strings interested 
 
 A trie is a multiway tree data structure that starts with an empty root node. The root node holds children nodes representing characters in a string. Unlike other tree-based data structures, tries may not be necessarily balanced, and each child node can have as many nodes within the chosen alphabet. If the trie is being implemented in English, each child node could possibly have up to 26 children. When searching through the tree, we begin at the root node and find a child node that holds the first character in our string. We traverse to that node and perform the same check for the second character in our string. The tree will continue to be traversed until it finds the desired word, at which point it can access the allotted value within the node that represents the end of the word. If no children nodes are found that correspond with a given character, then new nodes will be added for each letter until we reach the end of the word. For this reason, one can think of every internal node in the tree as being a prefix for all the possible string combinations below it.
 
+<p align = "center">
 [![](https://mermaid.ink/img/pako:eNpFkEsOgjAURbdC3uiS6AYYmKj1D2r8xEknDS1KIpRgGRjC3i2lxA6a23N6m_S1lGqpKKJnLapXcGO8DOyaAxetTRgG0-ksWNhTGHrjyB7YenkAdqPcOxIDJy8T4DHK2JEjkHh5BlajXDiy_Dc3wN3HLXD0cQewsbJ0hP0ra_f0IJkjK2Ddk4H1O02oUHUhcmn_3PaEk3mpQnGKbJQqE83bcOJlZ6-Kxujrt0wpMnWjJtRUUhjFcmGnVVCUiffHUiVzo-tkmGOqyyx_UvcDxNNWQg?type=png)](https://mermaid.live/edit#pako:eNpFkEsOgjAURbdC3uiS6AYYmKj1D2r8xEknDS1KIpRgGRjC3i2lxA6a23N6m_S1lGqpKKJnLapXcGO8DOyaAxetTRgG0-ksWNhTGHrjyB7YenkAdqPcOxIDJy8T4DHK2JEjkHh5BlajXDiy_Dc3wN3HLXD0cQewsbJ0hP0ra_f0IJkjK2Ddk4H1O02oUHUhcmn_3PaEk3mpQnGKbJQqE83bcOJlZ6-Kxujrt0wpMnWjJtRUUhjFcmGnVVCUiffHUiVzo-tkmGOqyyx_UvcDxNNWQg)
+</p>
 
 In the above trie we have an empty root node with two children, "R" and "H". If you traverse through their children you find the the node "R" maps to the letter "O" which then becomes the prefix for the words "roof", "round" and "room". Similarly, the child node "H" maps to the words "hi", "how", and "home". A good tool to visualize how tries insert and find nodes can be found [here.](https://www.cs.usfca.edu/~galles/visualization/Trie.html) 
 
@@ -77,35 +79,43 @@ Once I had all my programs and data files, I ran an insertion and search test on
 
 To better gauge and compare the behavior of the hash map relative to the trie structure, I conducted the above-mentioned tests with a hash map of an initialized array at the size of the passed words and another with an initialized array of 100 million (500x the size of the largest data file of 200,000 words). This was to better visualize how collisions might play a role in skewing my data towards the trie preforming better for both the speed and memory tests. 
 
+<p align = "center">
 <div style="display: flex; justify-content: space-between;">
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1738172052&amp;format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=547298304&amp;format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
+/p>
 
 As can be seen from the two bar graphs, although the collision amounts between the hash table initialized at word count and the table initialized at size 100 mil are vastly greater in the former, there are still a significant amount of collisions happening once the passed data size reaches the 100,000 mark. This is despite the initialized array being around 1,000x greater than the data load. Another thing to note is that when passed with the largest data file, the load factor for the hash tables initialized at word count stayed around 0.63, and those initialized at the large count had a load factor of around 0.001. The fact that there are collisions present within the hash tables may be of importance when further comparing the behavior of the trie and the table.
 
 ### Speed Analysis
 
+<p align = "center">
 <div style="display: flex; justify-content: space-between;">
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1016699300&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=860130258&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
+/p>
 
 In the following speed graphs, the vertical axis represents how long it took each structure to preform the operations. The graphs provided above show a speed analysis with hash tables initialized at data size. One can see that the trie preforms slower at inserting words than the hash table with the FNV and DBJ2 hashes, but still preforms better than the Jenkins table. In terms of searching for words, the trie preforms better than all three implementations of the hash table.
 
+<p align = "center">
 <div style="display: flex; justify-content: space-between;">
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1241946334&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1994237320&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
+/p>
 
 With tables initialized at the larger size, both Jenkins and DBJ2 preform worse than the trie at insertion, which is somewhat matched by the FNV hash table. For lookup the trie still preforms faster than all three implementations of the hash table.
 
 ### Memory Usage
 
+<p aling = "center">
 <div style="display: flex; justify-content: space-between;">
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=603777352&format=image" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1210084750&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
+/p>
 
 The trend being established for the trie is reinforced  when looking at its memory performance when inserting and searching. For the following graphs I directly compared the trie’s behavior with the FNV hash table, since it was the better preforming implementation. When inserting items into the tree, the trie requires a lot more current memory, and peaks at a higher value than the hash table. However, when looking up keys, the current memory usage of the trie is about the same as that of the hash table, with the hash table actually peaking more than the trie. Although the behavior of the data is similar when run with the smaller data file and on the hash tables initialized at word count, I’ve included links the other graphs below.
 * [Insertion Memory Usage (small file, at list size)](https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=575121581&format=image)
