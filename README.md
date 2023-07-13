@@ -84,7 +84,7 @@ To better gauge and compare the behavior of the hash map relative to the trie st
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1738172052&amp;format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=547298304&amp;format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
-/p>
+</p>
 
 As can be seen from the two bar graphs, although the collision amounts between the hash table initialized at word count and the table initialized at size 100 mil are vastly greater in the former, there are still a significant amount of collisions happening once the passed data size reaches the 100,000 mark. This is despite the initialized array being around 1,000x greater than the data load. Another thing to note is that when passed with the largest data file, the load factor for the hash tables initialized at word count stayed around 0.63, and those initialized at the large count had a load factor of around 0.001. The fact that there are collisions present within the hash tables may be of importance when further comparing the behavior of the trie and the table.
 
@@ -95,7 +95,7 @@ As can be seen from the two bar graphs, although the collision amounts between t
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1016699300&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=860130258&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
-/p>
+</p>
 
 In the following speed graphs, the vertical axis represents how long it took each structure to preform the operations. The graphs provided above show a speed analysis with hash tables initialized at data size. One can see that the trie preforms slower at inserting words than the hash table with the FNV and DBJ2 hashes, but still preforms better than the Jenkins table. In terms of searching for words, the trie preforms better than all three implementations of the hash table.
 
@@ -104,7 +104,7 @@ In the following speed graphs, the vertical axis represents how long it took eac
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1241946334&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1994237320&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
-/p>
+</p>
 
 With tables initialized at the larger size, both Jenkins and DBJ2 preform worse than the trie at insertion, which is somewhat matched by the FNV hash table. For lookup the trie still preforms faster than all three implementations of the hash table.
 
@@ -115,7 +115,7 @@ With tables initialized at the larger size, both Jenkins and DBJ2 preform worse 
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=603777352&format=image" style="width:50%; height:50%"/>
 <img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=1210084750&format=image" alt="p_iter_dp" style="width:50%; height:50%"/>
 </div>
-/p>
+</p>
 
 The trend being established for the trie is reinforced  when looking at its memory performance when inserting and searching. For the following graphs I directly compared the trie’s behavior with the FNV hash table, since it was the better preforming implementation. When inserting items into the tree, the trie requires a lot more current memory, and peaks at a higher value than the hash table. However, when looking up keys, the current memory usage of the trie is about the same as that of the hash table, with the hash table actually peaking more than the trie. Although the behavior of the data is similar when run with the smaller data file and on the hash tables initialized at word count, I’ve included links the other graphs below.
 * [Insertion Memory Usage (small file, at list size)](https://docs.google.com/spreadsheets/d/e/2PACX-1vSDbUPjwEKUPDfDQzZK37mHi4TUXc4BZKEoekN5IKOFS_AnjFhocJ4Bj0vblxH50MHgHskQvJcuTO3B/pubchart?oid=575121581&format=image)
