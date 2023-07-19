@@ -1,6 +1,6 @@
 # Tries Structure Research Paper
 
-Name: Marian Padron
+Name: Marian Padron 
 
 Semester: Fall 2023
 
